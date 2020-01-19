@@ -1,0 +1,237 @@
+import random
+import math
+dizi2=[]
+dizi3=[]
+sayi=0
+
+#50 tane random say� �rettik bu say�lar� 50 den k���k ise dizi2 b�y�k ise dizi3"e ekledik.
+for i in range(50):
+       sayi=random.randint(10,99)
+       if (sayi<50):
+           dizi2.append(sayi)
+       else:
+           dizi3.append(sayi)
+#50 tane random say� �rettik bu say�lar� 50 den k���k ise dizi2 b�y�k ise dizi3"e ekledik.
+
+
+#2 tane �ok boyutlu bo� dizi olu�turduk ve bu dizilerin sat�r ve sutun say�s�n� dizi2 ve dizi3 �n eleman say�lar�n�n k�k�n� alarak hallettik.       
+a=int(math.sqrt(len(dizi2)))
+b=int(math.sqrt(len(dizi3)))
+dizi=[[0 for j in range(a)]for i in range(a)]
+dizi1=[[0 for j in range(b)]for i in range(b)]
+#2 tane �ok boyutlu bo� dizi olu�turduk ve bu dizilerin sat�r ve sutun say�s�n� dizi2 ve dizi3 �n eleman say�lar�n�n k�k�n� alarak hallettik.
+
+#Diziye dizi2deki elemanlar� ekledik.Diziyi yazd�rd�k.
+c=0
+for i in range(a):
+    for j in range(a):
+        dizi[i][j]=dizi2[c]
+        c=c+1
+
+print "                                "
+for i in range(a):
+    for j in range(a):
+        print "       ",dizi[i][j],
+    print 
+    print
+#Diziye dizi2deki elemanlar� ekledik.Diziyi yazd�rd�k.
+
+
+
+#Dizinin en b�y�k ve en k���k de�erini ve konumunu bulduk.
+k=100
+z=0
+x=0
+y=0
+x1=0
+y1=0
+for i in range(a):
+    for j in range(a):
+        if dizi[i][j]>z:
+            z=dizi[i][j]
+            x=i
+            y=j
+        if dizi[i][j]<k:
+            k=dizi[i][j]
+            x1=i
+            y1=j
+
+#Dizinin eleman say�lar�n�n toplam�n� bulduk.
+t=0
+for i in range(a):
+    for j in range(a):
+        t=t+dizi[i][j]
+print "         ","Eleman say�lar�n�n toplam�:",t
+print "                                "
+#Dizinin eleman say�lar�n�n toplam�n� bulduk.
+
+
+print "  ","En b�y�k de�er:",z,",",x+1,".sat�r ve",y+1,".s�tundad�r."
+print "  ","En k���k de�er:",k,",",x1+1,".sat�r ve",y1+1,".s�tundad�r."
+print "                                "
+#Dizinin en b�y�k ve en k���k de�erini ve konumunu bulduk.
+
+
+
+#Dizinin sat�r ve sutun numaras�na g�re en b�y�k ve en k���k elemanlar�n� bulduk.
+si=1
+satir1=0
+sutun1=0
+
+bsatir=-1
+ksatir=100
+
+bsutun=0
+ksutun=100
+for i in range(a):
+       for j in range(a):
+              satir1=dizi[i][j]+satir1
+              sutun1=dizi[j][i]+sutun1
+              
+              if (dizi[i][j]>bsatir):
+                     bsatir=dizi[i][j]
+              if (ksatir>dizi[i][j]):
+                     ksatir=dizi[i][j]
+              if (bsutun<dizi[j][i]):
+                     bsutun=dizi[j][i]
+              if (ksutun>dizi[j][i]):
+                     ksutun=dizi[j][i]
+
+
+              if (j==a-1):
+                     print "  ","Dizinin ",si,".s�tunun toplam�",sutun1,"En b�y�k eleman�",bsutun,"En k���k eleman�",ksutun
+                    
+                     print "  ","Dizinin ",si,".sat�r�n�n toplam�",satir1,"En b�y�k eleman�",bsatir,"En k���k eleman�",ksatir
+                     print "                                "
+                     
+                     satir1=0
+                     sutun1=0
+                     si=si+1
+                     ksatir=100
+                     bsatir=0
+                     ksutun=100
+                     bsutun=0
+
+
+#Dizinin sat�r ve sutun numaras�na g�re en b�y�k ve en k���k elemanlar�n� bulduk.
+
+
+print "                                "
+print "------------------------------------------------------------"
+print "                                "
+
+
+#Dizi1e dizi3deki elemanlar� ekledik.Diziyi yazd�rd�k.
+d=0
+for i in range(b):
+    for j in range(b):
+        dizi1[i][j]=dizi3[d]
+        d=d+1
+
+for i in range(b):
+    for j in range(b):
+        print "       ", dizi1[i][j],
+    print
+#Dizi1e dizi3deki elemanlar� ekledik.Diziyi yazd�rd�k.
+
+    
+            
+#Dizinin en b�y�k ve en k���k de�erini ve konumunu bulduk.
+k1=100
+z1=0
+x2=0
+y2=0
+x3=0
+y3=0
+for i in range(b):
+    for j in range(b):
+        if dizi1[i][j]>z1:
+            z1=dizi1[i][j]
+            x2=i
+            y2=j
+        if dizi1[i][j]<k1:
+            k1=dizi1[i][j]
+            x3=i
+            y3=j
+#Dizinin eleman say�lar�n�n toplam�n� bulduk.
+t1=0
+for i in range(b):
+    for j in range(b):
+        t1=t1+dizi1[i][j]
+#Dizinin eleman say�lar�n�n toplam�n� bulduk.
+print "                                "
+print "         ","Eleman say�lar�n�n toplam�:",t1         
+print "                                "
+print "  ","En b�y�k de�er:",z1,",",x2+1,".sat�r ve",y2+1,".s�tundad�r."
+print "  ","En k���k de�er:",k1,",",x3+1,".sat�r ve",y3+1,".s�tundad�r."
+print "                                "
+#Dizinin en b�y�k ve en k���k de�erini ve konumunu bulduk.
+
+
+#Dizinin sat�r ve sutun numaras�na g�re en b�y�k ve en k���k elemanlar�n� bulduk.
+si=1
+satir1=0
+sutun1=0
+
+bsatir=-1
+ksatir=100
+
+bsutun=0
+ksutun=100
+for i in range(b):
+       for j in range(b):
+              satir1=dizi1[i][j]+satir1
+              sutun1=dizi1[j][i]+sutun1
+              
+              if (dizi1[i][j]>bsatir):
+                     bsatir=dizi1[i][j]
+              if (ksatir>dizi1[i][j]):
+                     ksatir=dizi1[i][j]
+              if (bsutun<dizi1[j][i]):
+                     bsutun=dizi1[j][i]
+              if (ksutun>dizi1[j][i]):
+                     ksutun=dizi1[j][i]
+
+
+              if (j==b-1):
+                     print "  ","Dizinin ",si,".s�tunun toplam�",sutun1,"En b�y�k eleman�",bsutun,"En k���k eleman�",ksutun
+                    
+                     print "  ","Dizinin ",si,".sat�r�n�n toplam�",satir1,"En b�y�k eleman�",bsatir,"En k���k eleman�",ksatir
+                     print "                                "
+                     
+                     satir1=0
+                     sutun1=0
+                     si=si+1
+                     ksatir=100
+                     bsatir=0
+                     ksutun=100
+                     bsutun=0
+                     
+                     
+
+#Dizinin sat�r ve sutun numaras�na g�re en b�y�k ve en k���k elemanlar�n� bulduk.
+
+
+print "                                "
+print "------------------------------------------------------------"
+print "         ","Eleman say�lar�n�n fark�:",t1-t
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
